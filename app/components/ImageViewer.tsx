@@ -5,10 +5,12 @@ type Props = {
     imgSource : ImageSourcePropType,
     width?: number,
     heigth?: number,
+    selectedImage?: string,
 };
 
-export default function Imageviewer({imgSource}: Props){
-    return <Image source={imgSource}  style={styles.image} />;
+export default function Imageviewer({imgSource, selectedImage}: Props){
+    const imageSource = selectedImage? {uri: selectedImage} : imgSource;
+    return <Image source={imageSource}  style={styles.image} />;
 
 }
 
